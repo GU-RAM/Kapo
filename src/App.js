@@ -1,3 +1,4 @@
+// Formatting
 import React, { useState, useEffect } from 'react';
 import spinner from './spinner.png';
 import './App.css';
@@ -9,6 +10,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Use async/await
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(({ data }) => {
         setIsLoading(false);
@@ -16,6 +18,7 @@ function App() {
       }).catch(error => console.log(error));
   }, []);
 
+  //Septate component
   const list = () => {
     return data && data.map(data => {
       return (
@@ -45,7 +48,7 @@ function App() {
 export default App;
 
 const Ul = styled.ul`
-display: grid;  
+display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
 `
